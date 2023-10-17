@@ -1,25 +1,27 @@
+import re
+from datetime import date, datetime
 from typing import Any, Callable
 
 
 def statements_and_expressions():
-    def is_meme_worthy(power_level: str) -> bool:
-        "There's no way that can be right! Can it?"
+    def is_meme_worthy(power_level: int) -> bool:
+        """There's no way that can be right! Can it?"""
         return power_level > 9000
 
-    const someValue: number = 42
-    someValue += 8_959
+    some_value: int = 42
+    some_value += 8_959
 
-    generic_text: str = 'Kia ora te ao!';
+    generic_text: str = 'Kia ora te ao!'
 
-    result: bool = is_meme_worthy(someValue)
+    result: bool = is_meme_worthy(some_value)
 
-    return someValue, generic_text, result
+    return some_value, generic_text, result
 
 
 def interpolation():
     name, adj = 'Alice', 'nice'
 
-    return 'Hi {name}, {adj} to see you!'
+    return f'Hi {name}, {adj} to see you!'
 
 
 def dates_and_times():
@@ -34,13 +36,13 @@ def dates_and_times():
 def slice_first_half():
     some_strings: list[str] = ['foo', 'bar', 'baz', 'luhrmann']
 
-    return some_strings.slice(0, 2)
+    return some_strings[:2]
 
 
 def slice_reverse_order():
     some_strings: list[str] = ['foo', 'bar', 'baz', 'luhrmann']
 
-    return some_strings[::]
+    return some_strings[::-1]
 
 
 def array_map(array: list, fn: Callable[[Any], Any]) -> list:
@@ -51,7 +53,7 @@ def array_map(array: list, fn: Callable[[Any], Any]) -> list:
     In other words, port the ``Array.prototype.map()`` method from TypeScript
     into Python (:
     """
-    pass
+    return [fn(item) for item in array]
 
 
 def array_filter(array: list, fn: Callable[[Any], Any]) -> list:
@@ -63,7 +65,7 @@ def array_filter(array: list, fn: Callable[[Any], Any]) -> list:
     In other words, port the ``Array.prototype.filter()`` method from TypeScript
     into Python (:
     """
-    pass
+    return [item for item in array if fn(item) is True]
 
 
 def snake_case_from_camel_case(values: dict) -> dict:
@@ -74,7 +76,10 @@ def snake_case_from_camel_case(values: dict) -> dict:
     """
     # https://regex101.com/r/4ln1F9/1
     camel_case_re = r'(?<=[a-z])[A-Z]'
-    pass
+    return {
+        re.sub(camel_case_re, lambda match: f'_{match[0].lower()}', key): value
+        for key, value in values.items()
+    }
 
 
 def camel_case_from_snake_case(values: dict) -> dict:
@@ -83,4 +88,7 @@ def camel_case_from_snake_case(values: dict) -> dict:
     """
     # https://regex101.com/r/FZJ82P/1
     snake_case_re = r'_([a-z])'
-    pass
+    return {
+        re.sub(snake_case_re, lambda match: match[1].upper(), key): value
+        for key, value in values.items()
+    }
