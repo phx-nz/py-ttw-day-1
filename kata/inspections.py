@@ -2,6 +2,19 @@ import re
 from datetime import date, datetime
 from typing import Any, Callable
 
+__all__ = [
+    'array_filter',
+    'array_map',
+    'camel_case_keys',
+    'dates_and_times',
+    'get_dict_item',
+    'interpolation',
+    'slice_first_half',
+    'slice_reverse_order',
+    'snake_case_keys',
+    'statements_and_expressions'
+]
+
 
 def statements_and_expressions():
     def is_meme_worthy(power_level: int) -> bool:
@@ -45,7 +58,21 @@ def slice_reverse_order():
     return some_strings[::-1]
 
 
-def array_map(array: list, fn: Callable[[Any], Any]) -> list:
+def get_dict_item(value: dict, key: str, default: Any) -> Any:
+    """
+    Given a dict, a key, and a default value, attempts to return the item from
+    the dict with the matching key.
+
+    If the key does not exist in the dict, the default value is returned
+    instead.
+    """
+    try:
+        return value[key]
+    except KeyError:
+        return default
+
+
+def array_map(array: list, fn: Callable) -> list:
     """
     Given a list of items and a function, returns a new list containing the
     results of calling the function on each item in the original list.
@@ -56,7 +83,7 @@ def array_map(array: list, fn: Callable[[Any], Any]) -> list:
     return [fn(item) for item in array]
 
 
-def array_filter(array: list, fn: Callable[[Any], Any]) -> list:
+def array_filter(array: list, fn: Callable) -> list:
     """
     Given a list of items and a function, calls the function on each item in
     the list and returns a new list containing only the items where the function
@@ -68,7 +95,7 @@ def array_filter(array: list, fn: Callable[[Any], Any]) -> list:
     return [item for item in array if fn(item) is True]
 
 
-def snake_case_from_camel_case(values: dict) -> dict:
+def snake_case_keys(values: dict) -> dict:
     """
     Converts the keys in a dict from camelCase to snake_case.
 
@@ -82,7 +109,7 @@ def snake_case_from_camel_case(values: dict) -> dict:
     }
 
 
-def camel_case_from_snake_case(values: dict) -> dict:
+def camel_case_keys(values: dict) -> dict:
     """
     Converts the keys in a dict from snake_case to camelCase.
     """
