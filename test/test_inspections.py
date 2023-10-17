@@ -32,7 +32,7 @@ def test_array_map():
 
 def test_array_filter():
     expected = [1, 3, 5, 7, 9]
-    odd_numbers = inspections.array_map([*range(11)], lambda n: n % 2 == 1)
+    odd_numbers = inspections.array_filter([*range(11)], lambda n: n % 2 == 1)
 
     assert odd_numbers == expected
 
