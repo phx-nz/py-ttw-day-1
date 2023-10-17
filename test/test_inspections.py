@@ -23,6 +23,33 @@ def test_reverse_slice():
         'foo']
 
 
+def test_get_dict_item_exists():
+    """Extracting an existing value with ``get_dict_item()``"""
+    expected = 'bar'
+    actual = inspections.get_dict_item(
+        {'foo': expected, 'baz': 'luhrmann'},
+        'foo',
+        'default value',
+    )
+
+    assert actual == expected
+
+
+def test_get_dict_item_not_exists():
+    """
+    Trying to access a nonexistent key with ``get_dict_item()``, so it returns
+    the default value instead.
+    """
+    expected = 'default value'
+    actual = inspections.get_dict_item(
+        {'foo': 'bar', 'baz': 'luhrmann'},
+        'something completely different',
+        expected,
+    )
+
+    assert actual == expected
+
+
 def test_array_map():
     expected = [1, 4, 9, 16, 25]
     squares = inspections.array_map([1, 2, 3, 4, 5], lambda n: n ** 2)
@@ -37,14 +64,14 @@ def test_array_filter():
     assert odd_numbers == expected
 
 
-def test_snake_case_from_camel_case():
+def test_snake_case_keys():
     expected = {
         'full_name': 'Henry Jones, Jr',
         'email_address': 'hjones@marshall.edu',
         'year_of_birth': 1899
     }
 
-    actual = inspections.snake_case_from_camel_case({
+    actual = inspections.snake_case_keys({
         'fullName': 'Henry Jones, Jr',
         'emailAddress': 'hjones@marshall.edu',
         'yearOfBirth': 1899
@@ -53,14 +80,14 @@ def test_snake_case_from_camel_case():
     assert actual == expected
 
 
-def test_camel_case_from_snake_case():
+def test_camel_case_keys():
     expected = {
         'fullName': 'Marcus Brody',
         'emailAddress': 'mbrody@marshall.edu',
         'yearOfBirth': 1878
     }
 
-    actual = inspections.camel_case_from_snake_case({
+    actual = inspections.camel_case_keys({
         'full_name': 'Marcus Brody',
         'email_address': 'mbrody@marshall.edu',
         'year_of_birth': 1878
