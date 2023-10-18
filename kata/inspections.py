@@ -58,7 +58,7 @@ def slice_reverse_order():
     return some_strings[::-1]
 
 
-def get_dict_item(value: dict, key: str, default: Any) -> Any:
+def get_dict_item(the_dict: dict, key: str, default: Any) -> Any:
     """
     Given a dict, a key, and a default value, attempts to return the item from
     the dict with the matching key.
