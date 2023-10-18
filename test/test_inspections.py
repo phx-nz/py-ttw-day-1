@@ -1,3 +1,8 @@
+"""
+These are the unit tests for the kata.  Your goal today is to make these tests pass,
+without cheating (:
+"""
+
 from kata import inspections
 
 
