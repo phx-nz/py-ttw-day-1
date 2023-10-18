@@ -27,12 +27,12 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Unit test / coverage reports
+# Unit tests
 .tox/
 .pytest_cache/
 
-# Sphinx documentation
-docs/_build/
+# Ruff
+.ruff_cache/
 
 # IPython
 profile_default/

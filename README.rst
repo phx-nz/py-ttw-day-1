@@ -14,7 +14,7 @@ Installation
 ------------
 Install development dependencies via pipenv::
 
-   pipenv install -e .
+   pipenv install --dev
 
 If pipenv is not installed, try this instead::
 
@@ -28,12 +28,28 @@ If pipenv is not installed, try this instead::
    pip install --upgrade pip pipenv
 
    # Install project dependencies
-   pipenv install -e .
+   pipenv install --dev
+
+Automatic code quality checks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+After installing dependencies, run the following command to install git hooks
+to automatically check code quality before allowing commits::
+
+   pipenv run autohooks activate --mode pipenv
+
+Checking code quality
+---------------------
+You can manually run code quality checks with the following commands::
+
+   # Check formatting:
+   pipenv run black [file ...]
+
+   # Linting (run both for best coverage):
+   pipenv run pylint [file ...]
+   pipenv run ruff check --fix [file ...]
 
 Running Unit Tests
 ------------------
 To run the unit tests::
 
-   pytest
-
-If the above command doesn't work, try ``python -m pytest`` instead.
+   pipenv run pytest
