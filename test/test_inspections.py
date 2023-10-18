@@ -2,12 +2,11 @@ from kata import inspections
 
 
 def test_statements_and_expressions():
-    assert inspections.statements_and_expressions() == (
-        9_001, 'Kia ora te ao!', True)
+    assert inspections.statements_and_expressions() == (9_001, "Kia ora te ao!", True)
 
 
 def test_interpolation():
-    assert inspections.interpolation() == 'Hi Alice, nice to see you!'
+    assert inspections.interpolation() == "Hi Alice, nice to see you!"
 
 
 def test_dates_and_times():
@@ -15,21 +14,20 @@ def test_dates_and_times():
 
 
 def test_first_half():
-    assert inspections.slice_first_half() == ['foo', 'bar']
+    assert inspections.slice_first_half() == ["foo", "bar"]
 
 
 def test_reverse_slice():
-    assert inspections.slice_reverse_order() == ['luhrmann', 'baz', 'bar',
-        'foo']
+    assert inspections.slice_reverse_order() == ["luhrmann", "baz", "bar", "foo"]
 
 
 def test_get_dict_item_exists():
     """Extracting an existing value with ``get_dict_item()``"""
-    expected = 'bar'
+    expected = "bar"
     actual = inspections.get_dict_item(
-        {'foo': expected, 'baz': 'luhrmann'},
-        'foo',
-        'default value',
+        {"foo": expected, "baz": "luhrmann"},
+        "foo",
+        "default value",
     )
 
     assert actual == expected
@@ -40,10 +38,10 @@ def test_get_dict_item_not_exists():
     Trying to access a nonexistent key with ``get_dict_item()``, so it returns
     the default value instead.
     """
-    expected = 'default value'
+    expected = "default value"
     actual = inspections.get_dict_item(
-        {'foo': 'bar', 'baz': 'luhrmann'},
-        'something completely different',
+        {"foo": "bar", "baz": "luhrmann"},
+        "something completely different",
         expected,
     )
 
@@ -52,7 +50,7 @@ def test_get_dict_item_not_exists():
 
 def test_array_map():
     expected = [1, 4, 9, 16, 25]
-    squares = inspections.array_map([1, 2, 3, 4, 5], lambda n: n ** 2)
+    squares = inspections.array_map([1, 2, 3, 4, 5], lambda n: n**2)
 
     assert squares == expected
 
@@ -66,31 +64,35 @@ def test_array_filter():
 
 def test_snake_case_keys():
     expected = {
-        'full_name': 'Henry Jones, Jr',
-        'email_address': 'hjones@marshall.edu',
-        'year_of_birth': 1899
+        "full_name": "Henry Jones, Jr",
+        "email_address": "hjones@marshall.edu",
+        "year_of_birth": 1899,
     }
 
-    actual = inspections.snake_case_keys({
-        'fullName': 'Henry Jones, Jr',
-        'emailAddress': 'hjones@marshall.edu',
-        'yearOfBirth': 1899
-    })
+    actual = inspections.snake_case_keys(
+        {
+            "fullName": "Henry Jones, Jr",
+            "emailAddress": "hjones@marshall.edu",
+            "yearOfBirth": 1899,
+        }
+    )
 
     assert actual == expected
 
 
 def test_camel_case_keys():
     expected = {
-        'fullName': 'Marcus Brody',
-        'emailAddress': 'mbrody@marshall.edu',
-        'yearOfBirth': 1878
+        "fullName": "Marcus Brody",
+        "emailAddress": "mbrody@marshall.edu",
+        "yearOfBirth": 1878,
     }
 
-    actual = inspections.camel_case_keys({
-        'full_name': 'Marcus Brody',
-        'email_address': 'mbrody@marshall.edu',
-        'year_of_birth': 1878
-    })
+    actual = inspections.camel_case_keys(
+        {
+            "full_name": "Marcus Brody",
+            "email_address": "mbrody@marshall.edu",
+            "year_of_birth": 1878,
+        }
+    )
 
     assert actual == expected
