@@ -4,9 +4,20 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-boilerplate = {file = ".", editable = true}
+py-tty-day-1 = { file = "." }
 
 [dev-packages]
+py-tty-day-1 = { file = ".", editable = true }
+autohooks = "*"
+autohooks-plugin-black = "*"
+autohooks-plugin-pylint = "*"
+autohooks-plugin-pytest = "*"
+autohooks-plugin-ruff = "*"
+black = "*"
+ipython = "*"
+pylint = "*"
+pytest = "*"
+ruff = "*"
 
 [requires]
 python_version = "3.12"
