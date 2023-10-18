@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-boilerplate = {extras = ["test-runner", "docs-builder", "build-system"], file = ".", editable = true}
+boilerplate = {file = ".", editable = true}
 
 [dev-packages]
 
