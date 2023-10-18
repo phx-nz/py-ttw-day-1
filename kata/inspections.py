@@ -67,7 +67,7 @@ def get_dict_item(the_dict: dict, key: str, default: Any) -> Any:
     instead.
     """
     try:
-        return value[key]
+        return the_dict[key]
     except KeyError:
         return default
 
