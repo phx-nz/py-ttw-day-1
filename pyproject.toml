@@ -12,13 +12,9 @@ authors = [
 ]
 
 dependencies = [
+    'black',
+    'pytest'
 ]
-
-[project.optional-dependencies]
-# Utilities for Project Maintainers
-"build-system" = ["build", "twine"]
-"docs-builder" = ["sphinx", "sphinx_rtd_theme"]
-"test-runner" = ["pytest", "tox"]
 
 [project.urls]
 Documentation = "https://github.com/phx-nz/boilerplate"
