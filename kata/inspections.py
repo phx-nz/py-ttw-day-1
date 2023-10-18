@@ -1,3 +1,10 @@
+"""
+This file has some issues that will prevent it from running correctly.  You'll need to
+fix syntax errors, address linter and formatter issues, and implement some functions.
+
+You'll know you got it right when the pre-commit hooks pass (:
+"""
+
 import re
 from datetime import date, datetime
 from typing import Any, Callable
@@ -17,6 +24,11 @@ __all__ = [
 
 
 def statements_and_expressions():
+    """
+    This function was written by an avid TypeScripter who is still adjusting to Python's
+    syntax.  Can you help them out?
+    """
+
     def is_meme_worthy(power_level: int) -> bool:
         """There's no way that can be right! Can it?"""
         return power_level > 9000
@@ -32,12 +44,18 @@ def statements_and_expressions():
 
 
 def interpolation():
+    """
+    Something's not quite right with this formatted string.
+    """
     name, adj = "Alice", "nice"
 
     return f"Hi {name}, {adj} to see you!"
 
 
 def dates_and_times():
+    """
+    The code looks right, but the IDE says that something is missing.
+    """
     einstein = date(1879, 3, 14)
     now_ish = datetime(2023, 10, 17, 12, 19, 32)
 
@@ -47,12 +65,19 @@ def dates_and_times():
 
 
 def slice_first_half():
+    """
+    Some more TypeScript syntax sneaked into the Python code.
+    """
     some_strings: list[str] = ["foo", "bar", "baz", "luhrmann"]
 
-    return some_strings[:2]
+    return some_strings[: len(some_strings) // 2]
 
 
 def slice_reverse_order():
+    """
+    Using slice syntax, see if you can get this function to return a reversed copy of
+    the list.  There are multiple ways to do it.
+    """
     some_strings: list[str] = ["foo", "bar", "baz", "luhrmann"]
 
     return some_strings[::-1]
