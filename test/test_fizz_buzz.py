@@ -1,3 +1,5 @@
+import pytest
+
 import kata
 
 
@@ -28,3 +30,12 @@ def test_happy_path():
         "",  # 19 not divisible by 3 nor 5
         "Buzz",  # 20 is divisible by 5
     ]
+
+
+def test_invalid_count():
+    """
+    If :py:func:`kata.fizz_buzz` receives a ``count`` that is less than 1, it raises a
+    :py:class:`ValueError`.
+    """
+    with pytest.raises(ValueError):
+        kata.fizz_buzz(0)

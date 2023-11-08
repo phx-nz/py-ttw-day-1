@@ -73,3 +73,16 @@ def camel_case_keys(values: dict) -> dict:
     # https://regex101.com/r/FZJ82P/1
     snake_case_re = r"_([a-z])"
     pass
+
+
+def get_item_case_insensitive(
+    the_dict: dict[str, typing.Any], search_key: str
+) -> typing.Any:
+    """
+    Iterates through ``the_dict`` until it finds the first item whose key is a
+    case-insensitive match for ``key``.
+
+    All keys in ``the_dict`` are strings.
+
+    :raises: KeyError if no matches are found.
+    """
