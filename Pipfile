@@ -4,18 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-py-tty-day-1 = { file = "." }
 
 [dev-packages]
 py-tty-day-1 = { file = ".", editable = true }
 autohooks = "*"
 autohooks-plugin-black = "*"
-autohooks-plugin-pylint = "*"
 autohooks-plugin-pytest = "*"
 autohooks-plugin-ruff = "*"
 black = "*"
 ipython = "*"
-pylint = "*"
 pytest = "*"
 ruff = "*"
 
