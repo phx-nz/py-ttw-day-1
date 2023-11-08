@@ -5,9 +5,21 @@ __all__ = [
     "array_filter",
     "array_map",
     "camel_case_keys",
+    "fizz_buzz",
     "get_dict_item",
     "snake_case_keys",
 ]
+
+
+def fizz_buzz(count: int) -> list[str]:
+    """
+    Returns an array with ``count`` items where each item is one of the following:
+
+    - If the item's index is divisible by 3: "Fizz"
+    - If the item's index is divisible by 5: "Buzz"
+    - If the item's index is divisible by 3 and 5: "FizzBuzz"
+    - If the item's index is not divisible by 3 nor 5: ""
+    """
 
 
 def get_dict_item(the_dict: dict, key: str, default: typing.Any) -> typing.Any:
