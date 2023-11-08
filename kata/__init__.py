@@ -7,6 +7,7 @@ __all__ = [
     "camel_case_keys",
     "fizz_buzz",
     "get_dict_item",
+    "get_item_case_insensitive",
     "snake_case_keys",
 ]
 
@@ -20,6 +21,9 @@ def fizz_buzz(count: int) -> list[str]:
     - If the item's index is divisible by 3 and 5: "FizzBuzz"
     - If the item's index is not divisible by 3 nor 5: ""
     """
+    if count < 1:
+        raise ValueError("Count must be >= 1")
+
     return [
         ("Fizz" if i % 3 == 0 else "") + ("Buzz" if i % 5 == 0 else "")
         for i in range(count)
@@ -73,7 +77,7 @@ def snake_case_keys(values: dict) -> dict:
     camel_case_re = r"(?<=[a-z])[A-Z]"
     return {
         (
-            re.sub(camel_case_re, lambda match: f"_{match[0].lower()}", key)
+            re.sub(camel_case_re, lambda groups: f"_{groups[0].lower()}", key)
             if isinstance(key, str)
             else key
         ): value
@@ -89,9 +93,32 @@ def camel_case_keys(values: dict) -> dict:
     snake_case_re = r"_([a-z])"
     return {
         (
-            re.sub(snake_case_re, lambda match: match[1].upper(), key)
+            re.sub(snake_case_re, lambda groups: groups[1].upper(), key)
             if isinstance(key, str)
             else key
         ): value
         for key, value in values.items()
     }
+
+
+def get_item_case_insensitive(
+    the_dict: dict[str, typing.Any], search_key: str
+) -> typing.Any:
+    """
+    Iterates through ``the_dict`` until it finds the first item whose key is a
+    case-insensitive match for ``key``.
+
+    All keys in ``the_dict`` are strings.
+
+    :raises: KeyError if no matches are found.
+    """
+    try:
+        return the_dict[search_key]
+    except KeyError:
+        ci_search_key = search_key.lower()
+
+        for key, value in the_dict.items():
+            if key.lower() == ci_search_key:
+                return value
+
+        raise KeyError(search_key)
