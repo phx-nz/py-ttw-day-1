@@ -44,7 +44,7 @@ def array_filter(array: list, fn: typing.Callable) -> list:
     In other words, port the ``Array.prototype.filter()`` method from TypeScript
     into Python (:
     """
-    return [item for item in array if fn(item) is True]
+    return [item for item in array if fn(item)]
 
 
 def snake_case_keys(values: dict) -> dict:
@@ -56,7 +56,11 @@ def snake_case_keys(values: dict) -> dict:
     # https://regex101.com/r/4ln1F9/1
     camel_case_re = r"(?<=[a-z])[A-Z]"
     return {
-        re.sub(camel_case_re, lambda match: f"_{match[0].lower()}", key): value
+        (
+            re.sub(camel_case_re, lambda match: f"_{match[0].lower()}", key)
+            if isinstance(key, str)
+            else key
+        ): value
         for key, value in values.items()
     }
 
@@ -68,6 +72,10 @@ def camel_case_keys(values: dict) -> dict:
     # https://regex101.com/r/FZJ82P/1
     snake_case_re = r"_([a-z])"
     return {
-        re.sub(snake_case_re, lambda match: match[1].upper(), key): value
+        (
+            re.sub(snake_case_re, lambda match: match[1].upper(), key)
+            if isinstance(key, str)
+            else key
+        ): value
         for key, value in values.items()
     }
