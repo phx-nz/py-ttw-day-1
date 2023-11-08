@@ -1,12 +1,12 @@
 import kata
 
 
-def happy_path():
+def test_happy_path():
     """
     Congratulations, you've passed the first technical interview!
     """
     assert kata.fizz_buzz(21) == [
-        "",  # 0 not divisible by 3 nor 5
+        "FizzBuzz",  # 0 is (technically) divisible by both 3 and 5
         "",  # 1 not divisible by 3 nor 5
         "",  # 2 not divisible by 3 nor 5
         "Fizz",  # 3 is divisible by 3
