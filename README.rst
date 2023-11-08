@@ -5,10 +5,9 @@ Boilerplate
 ===========
 Katas for Python Tech Transformation Workshop day 1.
 
-Your goal is to make all the tests in
-`./test/test_inspections.py <./test/test_inspections>` pass.
+Your goal is to make all the tests in the `test directory <./test>` pass.
 
-The corresponding code is in `./kata/inspections.py <./kata/inspections.py>`.
+The corresponding code is in `kata/__init__.py <./kata/__init__.py>`.
 
 Installation
 ------------
@@ -53,3 +52,11 @@ Running Unit Tests
 To run the unit tests::
 
    pipenv run pytest
+
+By default this will run all of the tests.  If you just want to run specific tests, you
+can provide them as arguments, e.g.::
+
+   pipenv run pytest test/test_get_dict_item.py
+
+See `how to invoke pytest <https://docs.pytest.org/en/7.4.x/how-to/usage.html>`_ for
+more information.
