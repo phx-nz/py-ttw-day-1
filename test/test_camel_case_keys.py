@@ -40,13 +40,13 @@ def test_non_string_keys():
     actual = kata.camel_case_keys(
         {
             42: "answer",
-            {"foo", "bar"}: "baz",
+            ("foo", "bar"): "baz",
             "control_group": "this one is not ignored",
         }
     )
 
     assert actual == {
         42: "answer",
-        {"foo", "bar"}: "baz",
+        ("foo", "bar"): "baz",
         "controlGroup": "this one is not ignored",
     }
