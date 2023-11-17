@@ -19,6 +19,7 @@ def fizz_buzz(count: int) -> list[str]:
     - If the item's index is divisible by 3 and 5: "FizzBuzz"
     - If the item's index is not divisible by 3 nor 5: ""
     """
+    pass
 
 
 def get_dict_item(the_dict: dict, key: str, default: typing.Any) -> typing.Any:
@@ -86,3 +87,4 @@ def get_item_case_insensitive(
 
     :raises: KeyError if no matches are found.
     """
+    pass
