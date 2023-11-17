@@ -5,9 +5,9 @@ Boilerplate
 ===========
 Katas for Python Tech Transformation Workshop day 1.
 
-Your goal is to make all the tests in the `test directory <./test>` pass.
+Your goal is to make all the tests in the `test directory <./test>`_ pass.
 
-The corresponding code is in `kata/__init__.py <./kata/__init__.py>`.
+The corresponding code is in `kata/__init__.py <./kata/__init__.py>`_.
 
 Installation
 ------------
