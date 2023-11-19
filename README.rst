@@ -1,6 +1,3 @@
-.. image:: https://github.com/phx-nz/py-tty-day-1/actions/workflows/build.yml/badge.svg
-   :target: https://github.com/phx-nz/py-tty-day-1/actions/workflows/build.yml
-
 Boilerplate
 ===========
 Katas for Python Tech Transformation Workshop day 1.
